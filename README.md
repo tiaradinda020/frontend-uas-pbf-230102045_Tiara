@@ -1,61 +1,83 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 📚 UAS Praktikum PBF - Frontend Laravel
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+**Nama:** Tiara Dinda  
+**NIM:** 230102045  
+**Repository Backend:** [uas_pbf_soal_b (CodeIgniter)](https://github.com/abdau88/uas_pbf_soal_b.git)  
+**Repository Frontend Ini:** `frontend-uas-pbf-230102045`
 
-## About Laravel
+---
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## 🛠️ 1. Cara Instalasi dan Menjalankan Project Backend
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+### 📦 Langkah-langkah:
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+1. **Clone Repo backend**:
+   ```bash 
+   git clone https://github.com/[USERNAME]/frontend-uas-pbf-230102045.git
+   cd frontend-uas-pbf-230102045
 
-## Learning Laravel
+2. **Buat Database**:
+   - Masuk ke phpMyAdmin atau MySQL CLI
+   - Buat new database lalu salin sql 
+   ```bash
+   git clone https://github.com/[USERNAME]/frontend-uas-pbf-230102045.git
+   cd frontend-uas-pbf-230102045
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+3. **Buat Group Collection Postman**:
+   ***Koleksi uas_buku***
+     1. GET/buku
+     2. POST/ buku
+     3. PUT/buku{id}
+     4. DELETE/buku{id}
+    ***Koleksi uas_peminjaman***
+    1. GET /peminjaman
+    2. POST /peminjaman
+    3. PUT /peminjaman{id}
+    4. DELETE /peminjaman{id}
+   
+## 🛠️ 2. Cara Instalasi dan Menjalankan Project Laravel
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+### 📦 Langkah-langkah:
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+1. **Clone Repo Ini**:
+   ```bash
+   git clone https://github.com/[USERNAME]/frontend-uas-pbf-230102045.git
+   cd frontend-uas-pbf-230102045
+   
+2. **Tambahkan route dan controller di Laravel**:
+   ```bash
+   php artisan make:controller BukuController
+   php artisan make:controller PeminjamanController
 
-## Laravel Sponsors
+3. **Mengambil Data dari Backend**
+   ***contohnya saya ambil dari index***
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+   ***Gunakan Laravel HTTP Client:***
+   
+   ```bash
+   use Illuminate\Support\Facades\Http;
+    ```
 
-### Premium Partners
+   ```bash
+   public function index()
+    {
+        $response = Http::get('http://localhost:8080/buku');
+        $buku = $response->json();
+        return view('buku.index', compact('buku'));
+    }
+    ```
+   
+5. **Membuat CRUD**:
+   - resources/views/buku/index.blade.php
+   - resources/views/buku/create.blade.php
+   - resources/views/buku/edit.blade.php
+     
+6. **Upload ke GitHub**
+   ***Langkah:***
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+   ```bash
+    git init
+    git add .
+    git commit -m "UAS PBF - Frontend Laravel Tiara Dinda"
+    git remote add origin https://github.com/[username]/frontend-uas-230102045.git
+    git push -u origin main
